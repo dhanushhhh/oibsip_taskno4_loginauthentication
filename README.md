@@ -1,12 +1,10 @@
 # OASIS INFOBYTE - Web Development and Designing
 
-## Task 4: Login Authentication Integration
+## Task 4: Login Authentication
 
-![logo]()
+![logo](static/logo.png)
+
 SecureBit is a secure bitcoin management system designed to provide users with a safe and reliable platform for managing their bitcoin assets. With SecureBit, users can securely store, monitor, and transact with their bitcoins, ensuring peace of mind and ease of use.
-
-
-## Login Authentication Task
 
 This project demonstrates a simple login authentication system using Flask, Flask-Login, and bcrypt for password hashing. It includes functionality for user registration, login, logout, and accessing secured pages.
 
@@ -46,9 +44,12 @@ This project demonstrates a simple login authentication system using Flask, Flas
 
 - **Bitcoin Data Display**: A secured page displays simulated Bitcoin data, including balance and current price fetched from the server asynchronously using JavaScript Fetch API.
 
+## Screenshots
+
 
 ### Dependencies
 
 - **Flask**: Micro web framework for Python.
 - **Flask-Login**: Provides user session management and authentication functionalities for Flask applications.
 - **bcrypt**: Library for password hashing.
+
