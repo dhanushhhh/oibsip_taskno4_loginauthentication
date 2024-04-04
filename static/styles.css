@@ -1,0 +1,163 @@
+/* Set dark mode background and text colors */
+:root {
+    --background: #000; /* Black background */
+    --color: #fff; /* White text color */
+    --primary-color: #007bff; /* Primary color for buttons */
+    --font-family: 'Roboto', sans-serif; /* Roboto font */
+}
+
+/* CSS for Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 2rem; /* Add margin at the bottom for spacing */
+}
+
+/* CSS for Card */
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 90%; /* Set card width */
+    max-width: 400px; /* Set maximum card width */
+    text-align: center;
+}
+
+/* Apply gradient background with updated colors */
+.gradient-custom {
+    background: linear-gradient(to right, #000, #080808); /* Black to grey gradient */
+    color: var(--color); /* Set text color to white */
+    font-family: var(--font-family);
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Center the container horizontally */
+.container {
+    width: 90%; /* Set container width to 90% of the viewport width */
+    max-width: 400px; /* Set maximum width of the container */
+    text-align: center;
+}
+
+/* Set form input color to white */
+.form-outline {
+    width: 100%;
+    color: var(--color);
+    font-size: 1.25rem; /* Increase font size */
+    margin-bottom: 1.5rem; /* Add space between form elements */
+}
+
+/* Style primary buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--color);
+    border: none;
+    width: 100%; /* Make buttons full width */
+    margin-top: 1rem; /* Add margin to separate buttons */
+    font-size: 1rem; /* Decrease font size */
+    padding: 0.5rem 1rem; /* Decrease padding */
+}
+
+/* Change button background color on hover */
+.btn-primary:hover {
+    background-color: #0056b3;
+    opacity: 0.8; /* Reduce opacity on hover */
+    transform: translateY(-2px); /* Move button up slightly on hover */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Set card background color to dark color */
+.card {
+    background-color: #0e0d0d; /* Dark color for the form background */
+    border: none; /* Remove border for a cleaner look */
+}
+
+
+/* Increase padding for better visibility */
+.card-body {
+    padding: 2rem;
+}
+
+/* Set label color to white */
+.form-label {
+    color: var(--color);
+    font-size: 1.25rem; /* Increase font size */
+}
+
+/* Style the link to register */
+#signup-link {
+    color: var(--primary-color); /* Set link color to primary color */
+    text-decoration: none; /* Remove default underline */
+    font-size: 1.25rem; /* Increase font size */
+}
+
+#signup-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Adjust alignment for small screens */
+@media (max-width: 576px) {
+    .container {
+        width: 100%; /* Set container width to full width for small screens */
+        padding: 0 15px; /* Add horizontal padding */
+    }
+}
+
+/* Center the registration form horizontally */
+#registerForm {
+    text-align: center;
+}
+
+/* Adjust registration form width for better alignment */
+#registerForm form {
+    max-width: 300px; /* Set maximum width of the registration form */
+    margin: 0 auto; /* Center the registration form horizontally */
+}
+
+/* Add space between registration form groups */
+#registerForm .form-group {
+    margin-bottom: 1.5rem; /* Add space between form groups */
+}
+
+/* Add text-start class to align text to the left */
+.text-start {
+    text-align: left;
+}
+/* Style the login button */
+#loginForm .btn {
+    background-color: #007bff; /* Blue color for button background */
+    color: var(--color); /* White text color */
+    border: none; /* Remove border */
+    font-size: 1rem; /* Font size */
+    padding: 0.5rem 1rem; /* Padding */
+}
+
+/* Change button background color on hover */
+#loginForm .btn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+    opacity: 0.8; /* Reduce opacity on hover */
+    transform: translateY(-2px); /* Move button up slightly on hover */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+/* Style the register button */
+#registerForm .btn {
+    background-color: #007bff; /* Blue color for button background */
+    color: var(--color); /* White text color */
+    border: none; /* Remove border */
+    font-size: 1rem; /* Font size */
+    padding: 0.5rem 1rem; /* Padding */
+}
+
+/* Change button background color on hover */
+#registerForm .btn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+    opacity: 0.8; /* Reduce opacity on hover */
+    transform: translateY(-2px); /* Move button up slightly on hover */
+    transition: all 0.3s ease; /* Smooth transition */
+}

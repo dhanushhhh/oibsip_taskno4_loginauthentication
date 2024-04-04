@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #111; /* Dark background color */
+            color: #fff; /* White text color */
+            font-family: Arial, sans-serif; /* Use Arial font family */
+            text-align: center; /* Center align content */
+        }
+        header {
+            margin-top: 50px; /* Add margin to header */
+        }
+        h1, h2 {
+            margin-bottom: 20px; /* Add margin bottom to headings */
+        }
+        h2 span {
+            font-weight: bold; /* Make span text bold */
+        }
+        .logout-btn {
+            margin-top: 30px; /* Add margin to top of logout button */
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Add padding to button */
+            cursor: pointer; /* Add cursor pointer */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        .logout-btn:hover {
+            background-color: #0056b3; /* Darker blue color on hover */
+            font-size: 16px; /* Increase font size on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <h1>Welcome to SecureBit</h1>
+        <h2>Your BTC Balance: <span id="bitcoin-balance">Loading...</span></h2>
+        <p>Your Bitcoin balance represents the total amount of Bitcoin you currently own.</p>
+        <h2>Current BTC Price: ₹ <span id="bitcoin-price">Loading...</span></h2>
+        <p>The current Bitcoin price indicates the value of one Bitcoin in Indian Rupees (₹).</p>
+        <form action="/logout" method="post">
+            <button class="logout-btn" type="submit">Logout</button>
+        </form>
+    </header>
+
+    <script>
+        // Fetch Bitcoin balance and price from server
+        fetch('/bitcoin_data')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('bitcoin-balance').textContent = data.balance;
+            document.getElementById('bitcoin-price').textContent = data.price;
+          })
+          .catch(error => console.error('Error fetching Bitcoin data:', error));
+    </script>
+</body>
+</html>

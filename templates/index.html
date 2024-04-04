@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .weak-password {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <section class="gradient-custom">
+        <!-- Logo section -->
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        
+        <!-- Card section -->
+        <div class="card-wrapper">
+            <div class="card bg-dark text-white rounded-3">
+                <div class="card-body p-5">
+                    <div id="loginForm"> <!-- Start of Login Form -->
+                        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                        {% if error %}
+                        <p class="text-danger">{{ error }}</p>
+                        {% endif %}
+                        <p class="text-white-50 mb-5">Please enter your username and password!</p>
+                        
+                        <form action="/login" method="post">
+                            <div class="form-outline form-white mb-4">
+                                <input type="text" id="username" name="username" class="form-control form-control-lg" required>
+                                <label class="form-label" for="username">Username</label>
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="password" name="password" class="form-control form-control-lg" required>
+                                <label class="form-label" for="password">Password</label>
+                                <p id="password-strength" class="weak-password"></p> <!-- Display password strength -->
+                            </div>
+                            
+                            <button class="btn btn-outline-light btn-lg btn-block" type="submit">Login</button>
+                        </form>
+                    </div> <!-- End of Login Form -->
+                    
+                    <div id="registerForm" style="display: none;"> <!-- Start of Register Form -->
+                        <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                        {% if success %}
+                        <p class="success">{{ success }}</p>
+                        {% endif %}
+                        <form action="/register" method="post">
+                            <div class="form-group">
+                                <label for="new-username">New Username:</label>
+                                <input type="text" id="new-username" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">New Password:</label>
+                                <input type="password" id="new-password" name="password" class="form-control" required>
+                                <p id="new-password-strength" class="weak-password"></p> <!-- Display password strength -->
+                            </div>
+                            <button class="btn btn-outline-light btn-lg btn-block" type="submit">Register</button>
+                        </form>
+                    </div> <!-- End of Register Form -->
+                    
+                    <div class="mt-4">
+                        <p class="mb-0">Don't have an account? <a href="#!" id="signup-link" class="text-white-50 fw-bold">Register</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("signup-link").addEventListener("click", function() {
+            document.getElementById("registerForm").style.display = "block";
+            document.getElementById("loginForm").style.display = "none";
+        });
+
+        // Check password strength
+        document.getElementById("new-password").addEventListener("input", function() {
+            var password = this.value;
+            var strength = document.getElementById("new-password-strength");
+
+            // Check password length
+            if (password.length < 8) {
+                strength.textContent = "Password must be at least 8 characters long";
+            } else {
+                strength.textContent = "";
+            }
+
+            // Check other criteria for password strength (e.g., letters, numbers, special characters)
+            // You can implement additional checks based on your requirements
+        });
+    </script>
+</body>
+</html>
