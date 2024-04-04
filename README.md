@@ -46,6 +46,8 @@ This project demonstrates a simple login authentication system using Flask, Flas
 
 ## Screenshots
 
+![login](login.png)
+![sp](secured page.png)
 
 ### Dependencies
 
